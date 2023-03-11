@@ -21,10 +21,10 @@
                 document.getElementById("media").value = media // Jogar o valor calculado a media no Input da Média
             // Compara se a média é maior ou igual a 6 para dizer se ele esta aprovado ou reprovado
             if(media >= 6){
-                document.getElementById("status").innerHTML="Aprovado" // Jogando o texto Aprovado na tag Span
+                document.getElementById("status").innerHTML="Aprovado!" // Jogando o texto Aprovado na tag Span
                 document.getElementById("status").style.color="green" // Trocando a cor do texto da tag Span
             }else{
-                document.getElementById("status").innerHTML="Reprovado" // Jogando o texto Reprovado na tag Span
+                document.getElementById("status").innerHTML="Reprovado!" // Jogando o texto Reprovado na tag Span
                 document.getElementById("status").style.color="red" // Trocando a cor do texto da tag Span
             }
         }
@@ -39,7 +39,7 @@
             <input type="text" id="media">
 
             
-            <p>Portanto está <span id="status"></span> </p>
+            <p>Portanto está <span id="status"></span></p>
             <input type="submit" value="Voltar">
 
         </form>
