@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Professor</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script>
+        //Criando função para capturar as notas e calcular a media dizendo se esta aprovado ou reprovado
+        function calcularMedia(){
+            const url = new URLSearchParams(window.location.search) //capturando a URL e armazenando dentro da variavel URL
+            let nota1 = url.get("n1") // A partir da URL eu capturo somente o valor do n1
+            let nota2 = url.get("n2") // A partir da URL eu capturo somente o valor do n2
+        
+            nota1 = Number(nota1) // Convertendo de String para numero o valor da nota 1
+            nota2 = Number(nota2) // Convertendo de String para numero o valor da nota 2
+
+            let media = (nota1 + nota2)/2 //Calcular a média e armazenar na variavel media
+
+                document.getElementById("media").value = media // Jogar o valor calculado a media no Input da Média
+            // Compara se a média é maior ou igual a 6 para dizer se ele esta aprovado ou reprovado
+            if(media >= 6){
+                document.getElementById("status").innerHTML="Aprovado" // Jogando o texto Aprovado na tag Span
+                document.getElementById("status").style.color="green" // Trocando a cor do texto da tag Span
+            }else{
+                document.getElementById("status").innerHTML="Reprovado" // Jogando o texto Reprovado na tag Span
+                document.getElementById("sattus").style.color="red" // Trocando a cor do texto da tag Span
+            }
+        }
+    </script>
+
+</head>
+<body onload="calcularMedia()">
+    <main>
+        <h1>Painel do Professor</h1>
+        <form action="index.html" method="POST">
+            <label>A Média do aluno é:</label>
+            <input type="text" id="media">
+
+            
+            <p>Portanto está <span id="status"></span> </p>
+            <input type="submit" value="Voltar">
+
+        </form>
+    </main>
+</body>
+</html>
